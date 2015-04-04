@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'jdom:jdom:1.1'
+    compile 'mysql:mysql-connector-java:5.1.6'
+
+    //Persistencia. EntityManger, etc.
+//    compile 'javax.persistence:persistence-api:1.0'
+
+    //Librerias apache para descargar URL
+    compile 'commons-io:commons-io:2.4'
+
+    //Eclipse link para aplicar persistencia
+    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.0'
+    //Metamodels de las entidades
+    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa.modelgen.processor:2.5.+'
+}
