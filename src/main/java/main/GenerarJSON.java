@@ -2,12 +2,13 @@
  * Autor: Alejandro Galvez
  * NIP: 631211
  * Fecha Creacion: 03-31-15
- * Fecha modificacion:
- * Tiempo invertido:
+ * Fecha modificacion: 04-05-15
+ * Tiempo invertido: 45min
  */
 package main;
 
 import generator.JSON.CrearFicheroJSON;
+import generator.JSON.EncapsulaDias;
 import generator.JSON.GestorExtraccionDatos;
 import generator.JSON.GestorSubidaFichero;
 import parser.datos.Dia;
@@ -25,7 +26,7 @@ import java.util.List;
 public class GenerarJSON
 {
 	private static final String RUTA_RESOURCES = "C:\\Users\\alex1_000\\GitRepositories\\stw\\Practica5\\src\\main\\resources\\";
-//	private static final String URL_SERVIDOR = "C:\\xampp\\tomcat\\webapps\\docs\\";
+	//	private static final String URL_SERVIDOR = "C:\\xampp\\tomcat\\webapps\\docs\\";
 
 	public static void main(String[] args)
 	{
@@ -49,8 +50,11 @@ public class GenerarJSON
 
 			System.out.println("Informacion obtenida desde la base de datos MySQL local");
 
+			//Encapsulamos la lista de dias
+			EncapsulaDias listaDiasEncapsulada = new EncapsulaDias(listaDias);
+
 			//Generamos fichero JSON
-			CrearFicheroJSON.leeDias(ficheroJSON, listaDias);
+			CrearFicheroJSON.leeDias(ficheroJSON, listaDiasEncapsulada);
 
 			System.out.println("Fichero JSON generado");
 
@@ -58,8 +62,7 @@ public class GenerarJSON
 			GestorSubidaFichero.subirFichero(ficheroJSON, rutaServer);
 
 			System.out.println("Fichero JSON subido al servidor");
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Error en GenerarJSON");
 			ex.printStackTrace();

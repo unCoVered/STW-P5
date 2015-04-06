@@ -22,10 +22,13 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("STW_P5_Persistence");
 	EntityManager em = entityManagerFactory.createEntityManager();
 
-	public ExtraerDatosBean(){}
+	public ExtraerDatosBean()
+	{
+	}
 
 	@Override
-	public List<Date> cargarFechaDias(){
+	public List<Date> cargarFechaDias()
+	{
 
 		List<Date> listaFechasQuery = new ArrayList<Date>();
 
@@ -43,7 +46,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			return listaFechasQuery;
 
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarFechaDias");
 			ex.printStackTrace();
@@ -75,7 +78,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			uvMax = em.createQuery(criteria).getSingleResult();
 
 			return uvMax;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarUvMaxDia");
 			ex.printStackTrace();
@@ -104,19 +107,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String periodo = tupla.get("periodo", String.class);
 				String valorPeriodo = "";
 
 				if (tupla.get("valorPeriodo") != null)
+				{
 					valorPeriodo = Integer.toString(tupla.get("valorPeriodo", Integer.class));
+				}
 
 				mapProb.put(periodo, valorPeriodo);
 			}
 
 			return mapProb;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarProbPrecipitacion");
 			ex.printStackTrace();
@@ -145,19 +150,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String periodo = tupla.get("periodo", String.class);
 				String valorPeriodo = "";
 
 				if (tupla.get("valorPeriodo") != null)
+				{
 					valorPeriodo = Integer.toString(tupla.get("valorPeriodo", Integer.class));
+				}
 
 				mapCota.put(periodo, valorPeriodo);
 			}
 
 			return mapCota;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarCotaNieveProv");
 			ex.printStackTrace();
@@ -185,20 +192,22 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String periodo = tupla.get("periodo", String.class);
 				String[] valorPeriodo = new String[1];
 				valorPeriodo[0] = "";
 
 				if (tupla.get("descripcion") != null)
+				{
 					valorPeriodo[0] = tupla.get("descripcion", String.class);
+				}
 
 				mapEstado.put(periodo, valorPeriodo);
 			}
 
 			return mapEstado;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarEstadoCielo");
 			ex.printStackTrace();
@@ -227,7 +236,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String periodo = tupla.get("periodo", String.class);
 				String[] valorPeriodo = new String[2];
@@ -235,16 +244,18 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 				valorPeriodo[1] = "";
 
 				if (tupla.get("direccion") != null)
+				{
 					valorPeriodo[0] = tupla.get("direccion", String.class);
-				else if (tupla.get("velocidad") != null)
+				} else if (tupla.get("velocidad") != null)
+				{
 					valorPeriodo[1] = Integer.toString(tupla.get("velocidad", Integer.class));
-
+				}
 
 				mapViento.put(periodo, valorPeriodo);
 			}
 
 			return mapViento;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarViento");
 			ex.printStackTrace();
@@ -273,19 +284,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String periodo = tupla.get("periodo", String.class);
 				String valorPeriodo = "";
 
 				if (tupla.get("valorPeriodo") != null)
+				{
 					valorPeriodo = Integer.toString(tupla.get("valorPeriodo", Integer.class));
+				}
 
 				mapRacha.put(periodo, valorPeriodo);
 			}
 
 			return mapRacha;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarRachaMax");
 			ex.printStackTrace();
@@ -316,7 +329,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			tempMaxima = em.createQuery(criteria).getSingleResult();
 
 			return tempMaxima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarTempMaxima");
 			ex.printStackTrace();
@@ -347,7 +360,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			tempMinima = em.createQuery(criteria).getSingleResult();
 
 			return tempMinima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarTempMinima");
 			ex.printStackTrace();
@@ -376,19 +389,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String hora = tupla.get("hora", String.class);
 				Integer valorHora = Integer.valueOf(0);
 
 				if (tupla.get("valorHora") != null)
+				{
 					valorHora = tupla.get("valorHora", Integer.class);
+				}
 
 				mapTempIntervalos.put(hora, valorHora);
 			}
 
 			return mapTempIntervalos;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarTempIntervalos");
 			ex.printStackTrace();
@@ -419,7 +434,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			sensTermMaxima = em.createQuery(criteria).getSingleResult();
 
 			return sensTermMaxima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarSensTermMaxima");
 			ex.printStackTrace();
@@ -450,7 +465,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			sensTermMinima = em.createQuery(criteria).getSingleResult();
 
 			return sensTermMinima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarSensTermMinima");
 			ex.printStackTrace();
@@ -469,7 +484,8 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<Tuple> criteria = cb.createTupleQuery();
 
-			Root<SensacionTermicaIntervalosEntity> sensTermIntRoot = criteria.from(SensacionTermicaIntervalosEntity.class);
+			Root<SensacionTermicaIntervalosEntity> sensTermIntRoot = criteria
+					.from(SensacionTermicaIntervalosEntity.class);
 
 			// QUERY APROX: SELECT HORA, VALORHORA FROM SENSACION_TERMICA_INTERVALOS WHERE FECHA = PARAM
 			criteria.multiselect(sensTermIntRoot.get(SensacionTermicaIntervalosEntity_.hora).alias("hora"),
@@ -479,19 +495,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String hora = tupla.get("hora", String.class);
 				Integer valorHora = Integer.valueOf(0);
 
 				if (tupla.get("valorHora") != null)
+				{
 					valorHora = tupla.get("valorHora", Integer.class);
+				}
 
 				mapSensTermIntervalos.put(hora, valorHora);
 			}
 
 			return mapSensTermIntervalos;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarSensTermIntervalos");
 			ex.printStackTrace();
@@ -522,7 +540,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			humRelMaxima = em.createQuery(criteria).getSingleResult();
 
 			return humRelMaxima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarHumRelMaxima");
 			ex.printStackTrace();
@@ -553,7 +571,7 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 			humRelMinima = em.createQuery(criteria).getSingleResult();
 
 			return humRelMinima;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarHumRelMinima");
 			ex.printStackTrace();
@@ -582,19 +600,21 @@ public class ExtraerDatosBean implements ExtraerDatosBeanRemote
 
 			criteria.where(cb.and(restricciones.toArray(new Predicate[restricciones.size()])));
 
-			for(Tuple tupla : em.createQuery(criteria).getResultList())
+			for (Tuple tupla : em.createQuery(criteria).getResultList())
 			{
 				String hora = tupla.get("hora", String.class);
 				Integer valorHora = Integer.valueOf(0);
 
 				if (tupla.get("valorHora") != null)
+				{
 					valorHora = tupla.get("valorHora", Integer.class);
+				}
 
 				mapHumRelIntervalos.put(hora, valorHora);
 			}
 
 			return mapHumRelIntervalos;
-		}catch(NoResultException ex)
+		} catch (NoResultException ex)
 		{
 			System.out.println("Excepcion en cargarHumRelIntervalos");
 			ex.printStackTrace();

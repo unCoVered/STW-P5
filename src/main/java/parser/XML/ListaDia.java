@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("hiding")
-public class ListaDia {
+public class ListaDia
+{
 
 	private List<Dia> diasPrediccion;
-	
+
 	/**
 	 * Constructor sin parametros
 	 */
@@ -22,9 +23,10 @@ public class ListaDia {
 	{
 		this.diasPrediccion = new ArrayList<Dia>();
 	}
-	
+
 	/**
 	 * Constructor con parametros
+	 *
 	 * @param lista
 	 */
 	public ListaDia(List<Dia> lista)

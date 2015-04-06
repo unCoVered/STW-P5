@@ -1,18 +1,11 @@
-/**
- * Autor: Alejandro Galvez
- * NIP: 631211
- * Fecha Creacion: 03-31-15
- * Fecha modificacion: 04-05-15
- * Tiempo invertido: 30min
- */
-package parser.XML;
+package parser.JSON;
 
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.net.URL;
 
-public class GestorDescargaFichero
+public class GestorDescargaFicheroJSON
 {
 	/**
 	 * Dada una ruta, genera un objeto file con el fichero descargado
@@ -31,6 +24,7 @@ public class GestorDescargaFichero
 			ruta = new URL(urlFichero);
 
 			FileUtils.copyURLToFile(ruta, fichero);
+
 
 			return fichero;
 		} catch (Exception e)

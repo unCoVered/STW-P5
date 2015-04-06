@@ -15,12 +15,14 @@ public interface ExtraerDatosBeanRemote
 {
 	/**
 	 * Devuelve una lista de Strings con las fechas de los dias almacenados en la BD
+	 *
 	 * @return
 	 */
 	public List<Date> cargarFechaDias();
 
 	/**
 	 * Devuelve el atributo UvMax del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -28,6 +30,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve un mapHash con las prob. precipitacion del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -35,6 +38,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve un MapHash con las cotas de nieve del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -42,6 +46,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve un MapHash con el estado del cielo del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -49,6 +54,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve un MapHash con el viento del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -56,6 +62,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve un MapHash con las rachaMaximas de viento del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -63,6 +70,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la temp. maxima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -70,6 +78,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la temp. minima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -77,6 +86,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la temp. por intervalos del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -84,6 +94,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Sens. Term. maxima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -91,6 +102,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Sens. Term. minima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -98,6 +110,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Sens. Term. por intervalos del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -105,6 +118,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Hum. Relm maxima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -112,6 +126,7 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Hum. Rel. minima del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
@@ -119,10 +134,10 @@ public interface ExtraerDatosBeanRemote
 
 	/**
 	 * Devuelve la Hum. Rel. por intervalos del dia con la fecha pasada por parametros
+	 *
 	 * @param fecha
 	 * @return
 	 */
 	public Map<String, Integer> cargarHumRelIntervalos(Date fecha);
-
 
 }

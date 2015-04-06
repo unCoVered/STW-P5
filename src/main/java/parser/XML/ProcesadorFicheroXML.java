@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ProcesadorFicheroXML
 {
-
 	/**
 	 * Metodo estatico encargado de leer y parsear el contenido de un fichero
 	 * XML previamente indicado como atributo de la clase
@@ -49,8 +48,7 @@ public class ProcesadorFicheroXML
 				}
 			}
 
-		}
-		catch (Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Exception leer prediccion");
 			System.out.println(ex.getMessage());
@@ -76,8 +74,7 @@ public class ProcesadorFicheroXML
 					leerPrediccionDia(subseccion, dias);
 				}
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion leerSeccionPrediccion");
 			System.out.println(ex.getMessage());
@@ -155,18 +152,16 @@ public class ProcesadorFicheroXML
 					break;
 				}
 			}
-//			System.out.println(fechaDia);
 
 			Dia diaMappeado = new Dia(dia);
 			dias.getDiasPrediccion().add(diaMappeado);
-
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion leerPrediccionDia");
 			System.out.println(ex.getMessage());
 		}
 	}
+
 	/**
 	 * Mappea los atributos y valores del campo precipitaciones
 	 *
@@ -181,9 +176,7 @@ public class ProcesadorFicheroXML
 					.put(atDia.getAttributeValue(CodeNames.PERIODO_ATR),
 							atDia.getText());
 
-
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapProbPrecipitacion");
 			System.out.println(ex.getMessage());
@@ -198,13 +191,13 @@ public class ProcesadorFicheroXML
 	 */
 	private static void mapCotaNieveProv(Element atDia, parser.datos.Dia dia)
 	{
-		try{
+		try
+		{
 			dia.getCotaNieveProv()
 					.put(atDia.getAttributeValue(CodeNames.PERIODO_ATR),
 							atDia.getText());
 
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapCotaNieve");
 			System.out.println(ex.getMessage());
@@ -219,16 +212,16 @@ public class ProcesadorFicheroXML
 	 */
 	private static void mapEstadoCielo(Element atDia, parser.datos.Dia dia)
 	{
-		try{
+		try
+		{
 			String[] array = new String[2];
-//			array[0] = atDia.getAttributeValue(CodeNames.DESCRIPCION_ATR);
+			//			array[0] = atDia.getAttributeValue(CodeNames.DESCRIPCION_ATR);
 			array[0] = atDia.getAttribute(CodeNames.DESCRIPCION_ATR).getValue();
 			array[1] = atDia.getText();
 			dia.getEstadoCielo().put(
 					atDia.getAttributeValue(CodeNames.PERIODO_ATR), array);
 
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapEstadoCielo");
 			System.out.println(ex.getMessage());
@@ -243,15 +236,15 @@ public class ProcesadorFicheroXML
 	 */
 	private static void mapViento(Element atDia, parser.datos.Dia dia)
 	{
-		try{
+		try
+		{
 			String[] array = new String[2];
 			array[0] = atDia.getChild("direccion").getValue();
 			array[1] = atDia.getChild("velocidad").getValue();
 			dia.getViento().put(atDia.getAttributeValue(CodeNames.PERIODO_ATR),
 					array);
 
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapViento");
 			System.out.println(ex.getMessage());
@@ -271,8 +264,7 @@ public class ProcesadorFicheroXML
 			dia.getRachaMax().put(atDia.getAttributeValue(CodeNames.PERIODO_ATR),
 					atDia.getText());
 
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapRachaMax");
 			System.out.println(ex.getMessage());
@@ -328,8 +320,7 @@ public class ProcesadorFicheroXML
 				}
 				}
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapTemperatura");
 			System.out.println(ex.getMessage());
@@ -385,8 +376,7 @@ public class ProcesadorFicheroXML
 				}
 				}
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapSensacionTermica");
 			System.out.println(ex.getMessage());
@@ -442,8 +432,7 @@ public class ProcesadorFicheroXML
 				}
 				}
 			}
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapHumedadRelativa");
 			System.out.println(ex.getMessage());
@@ -461,8 +450,7 @@ public class ProcesadorFicheroXML
 		try
 		{
 			dia.setUvMax(Integer.parseInt(atDia.getText()));
-		}
-		catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion mapUVMax");
 			System.out.println(ex.getMessage());

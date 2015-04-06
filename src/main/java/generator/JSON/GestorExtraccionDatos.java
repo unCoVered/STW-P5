@@ -21,9 +21,10 @@ import java.util.List;
 public class GestorExtraccionDatos
 {
 
-	private  ExtraerDatosBeanRemote extraerDatosBeanRemote;
+	private ExtraerDatosBeanRemote extraerDatosBeanRemote;
 
-	public GestorExtraccionDatos(){
+	public GestorExtraccionDatos()
+	{
 
 		extraerDatosBeanRemote = new ExtraerDatosBean();
 
@@ -31,10 +32,11 @@ public class GestorExtraccionDatos
 
 	public void generarListaDias(List<Dia> listaDias)
 	{
-		try{
+		try
+		{
 			List<Date> fechaDias = extraerDatosBeanRemote.cargarFechaDias();
 
-			for(Date fecha : fechaDias)
+			for (Date fecha : fechaDias)
 			{
 				Dia dia = new Dia();
 
@@ -72,7 +74,7 @@ public class GestorExtraccionDatos
 
 				listaDias.add(dia);
 			}
-		}catch(Exception ex)
+		} catch (Exception ex)
 		{
 			System.out.println("Excepcion en generarListaDias");
 			ex.printStackTrace();

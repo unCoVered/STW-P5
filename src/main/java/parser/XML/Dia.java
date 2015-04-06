@@ -222,8 +222,9 @@ public class Dia extends Element
 						for (String hora : horas)
 						{
 							this.temperatura.addContent(
-									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora).setText(
-											Integer.toString(dia.getTemperatura().getDato().get(hora))));
+									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora)
+											.setText(
+													Integer.toString(dia.getTemperatura().getDato().get(hora))));
 						}
 					}
 
@@ -253,8 +254,9 @@ public class Dia extends Element
 						for (String hora : horas)
 						{
 							this.sensacionTermica.addContent(
-									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora).setText(
-											Integer.toString(dia.getSensacionTermica().getDato().get(hora))));
+									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora)
+											.setText(
+													Integer.toString(dia.getSensacionTermica().getDato().get(hora))));
 						}
 					}
 				}
@@ -278,12 +280,14 @@ public class Dia extends Element
 							.setText(Integer.toString(dia.getHumedadRelativa().getMinima())));
 
 					// Si el tamanyo del hash es mayor de cero
-					if(dia.getHumedadRelativa().getDato().size() != 0){
+					if (dia.getHumedadRelativa().getDato().size() != 0)
+					{
 						for (String hora : horas)
 						{
 							this.humedadRelativa.addContent(
-									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora).setText(
-											Integer.toString(dia.getHumedadRelativa().getDato().get(hora))));
+									new Element(common.CodeNames.DATO_ATR).setAttribute(common.CodeNames.HORA_ATR, hora)
+											.setText(
+													Integer.toString(dia.getHumedadRelativa().getDato().get(hora))));
 						}
 					}
 				}

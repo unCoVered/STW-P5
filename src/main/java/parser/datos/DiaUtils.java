@@ -39,7 +39,8 @@ public class DiaUtils
 	 */
 	public static List<String> rellenarPeriodos()
 	{
-		if (periodos.size() !=  6){
+		if (periodos.size() != 6)
+		{
 			periodos.add(periodo0024);
 			periodos.add(periodo0012);
 			periodos.add(periodo1224);
@@ -59,7 +60,8 @@ public class DiaUtils
 	 */
 	public static List<String> rellenarHoras()
 	{
-		if(horas.size() != 4){
+		if (horas.size() != 4)
+		{
 			horas.add(hora06);
 			horas.add(hora12);
 			horas.add(hora18);

@@ -2,7 +2,7 @@
  * Autor: Alejandro Galvez
  * NIP: 631211
  * Fecha Creacion: 04-02-15
- * Fecha modificacion:
+ * Fecha modificacion: 04-05-15
  * Tiempo invertido: 5h
  */
 package parser.XML;
@@ -45,8 +45,10 @@ public class GestorInsercionDatos
 	{
 		//Inicializamos los codigos a 1 -> No existen primary keys que valgan 0
 
-		for(int i = 0; i<this.codigo.length; i++)
+		for (int i = 0; i < this.codigo.length; i++)
+		{
 			codigo[i] = 1;
+		}
 
 	}
 
@@ -115,6 +117,7 @@ public class GestorInsercionDatos
 
 	/**
 	 * Inserta los datos guardados en los atributos de la clase en la BD
+	 *
 	 * @param em
 	 */
 	private void insertaAtributos(EntityManager em)
@@ -625,14 +628,14 @@ public class GestorInsercionDatos
 
 			diaEntity.setCodigo(codigo);
 			diaEntity.setFecha(date);
-//			diaEntity.setProbPrecipitacion(probPrecipitacionEntity);
-//			diaEntity.setCotaNieveProv(cotaNieveProvEntity);
-//			diaEntity.setEstadoCielo(estadoCieloEntity);
-//			diaEntity.setViento(vientoEntity);
-//			diaEntity.setRachaMax(rachaMaxEntity);
-//			diaEntity.setTemperatura(temperaturaEntity);
-//			diaEntity.setSensacionTermica(sensacionTermicaEntity);
-//			diaEntity.setHumedadRelativa(humedadRelativaEntity);
+			//			diaEntity.setProbPrecipitacion(probPrecipitacionEntity);
+			//			diaEntity.setCotaNieveProv(cotaNieveProvEntity);
+			//			diaEntity.setEstadoCielo(estadoCieloEntity);
+			//			diaEntity.setViento(vientoEntity);
+			//			diaEntity.setRachaMax(rachaMaxEntity);
+			//			diaEntity.setTemperatura(temperaturaEntity);
+			//			diaEntity.setSensacionTermica(sensacionTermicaEntity);
+			//			diaEntity.setHumedadRelativa(humedadRelativaEntity);
 			diaEntity.setUvMax(uvMax);
 
 			em.persist(diaEntity);

@@ -10,6 +10,10 @@ package parser.datos;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Clase con todos los datos necesarios para introducir el campo Temperatura
+ * en en el dia
+ */
 public class Temperatura
 {
 
